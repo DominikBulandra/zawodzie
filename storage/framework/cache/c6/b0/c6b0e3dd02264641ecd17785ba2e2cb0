@@ -1,0 +1,67 @@
+1502360907a:1:{s:13:"blog/post.htm";a:7:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:1199:"[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+[viewBag]
+==
+{% set image = post.featured_images.first %}
+
+<article>
+
+    {% if image %}
+        <div class="post-image">
+            <a href="{{ post.url }}"><img src="{{ image.path }}" alt="{{ post.title }}" /></a>
+        </div>
+    {% else %}
+        <header class="post-title">
+            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        </header>
+    {% endif %}
+
+    <div class="post-content">
+        {{ post.summary|raw }} {{ post.PostAuth.name }} 
+    </div>
+
+    <footer>
+        <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
+        {# <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}</span> #}
+        {% if post.categories.count %} in
+            <span class="category">
+                <i class="icon icon-folder-open"></i>
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+        {% endif %}
+    </footer>
+</article>";s:5:"mtime";i:1502360302;s:6:"markup";s:1116:"{% set image = post.featured_images.first %}
+
+<article>
+
+    {% if image %}
+        <div class="post-image">
+            <a href="{{ post.url }}"><img src="{{ image.path }}" alt="{{ post.title }}" /></a>
+        </div>
+    {% else %}
+        <header class="post-title">
+            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        </header>
+    {% endif %}
+
+    <div class="post-content">
+        {{ post.summary|raw }} {{ post.PostAuth.name }} 
+    </div>
+
+    <footer>
+        <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
+        {# <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}</span> #}
+        {% if post.categories.count %} in
+            <span class="category">
+                <i class="icon icon-folder-open"></i>
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+        {% endif %}
+    </footer>
+</article>";s:4:"code";N;s:8:"blogPost";a:2:{s:4:"slug";s:11:"{{ :slug }}";s:12:"categoryPage";s:13:"blog/category";}s:7:"viewBag";a:0:{}}}

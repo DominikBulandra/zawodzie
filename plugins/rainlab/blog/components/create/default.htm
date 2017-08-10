@@ -1,0 +1,34 @@
+{% framework %}
+{% framework extras %}
+<div class="container ">
+ <h2>Dodaj wiadomość</h2>
+<form data-request="onSave" class="form-horizontal">
+<div class="form-group">
+<label class="control-label col-sm-2" for="pwd">Temat</label>
+ <div class="col-sm-7">
+<input type="text" name="title" class="form-control " id="pwd">
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="pwd">slug</label>
+ <div class="col-sm-7">
+<input type="text" name="slug" class="form-control" id="pwd">
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2" for="pwd">Treść</label>
+ <div class="col-sm-7">
+<input type="content" name="content" class="form-control" rows="5" id="comment">
+</div>
+ <div class="col-sm-7">
+<button type="submit" class="btn btn-default">Dodaj</button>
+</div>
+<div class="form-group">
+     
+    </div>
+{% flash success %}
+    <p> {{massage}} </p>
+
+{% endflash %}
+</form>
+</div>
