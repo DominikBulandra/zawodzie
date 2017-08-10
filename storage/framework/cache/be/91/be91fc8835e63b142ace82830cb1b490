@@ -1,4 +1,4 @@
-1502360590a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1722:"[viewBag]
+1502370445a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1723:"[viewBag]
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -20,7 +20,7 @@ security = "all"
 </div>
 {% if user %}
     <p>Hello {{ user.name }}</p>
-     <li><a href="./create">Nowa wiadomość</a></li>
+     <li><a href="../create">Nowa wiadomość</a></li>
      <a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
 {% else %}
     <p>Nobody is logged in</p>
@@ -57,12 +57,12 @@ security = "all"
         {% endif %}
         <li><a href="{{ 'blog/rss'|page }}">RSS Feed</a></li>
     </ul>
-</div>";s:5:"mtime";i:1502285175;s:6:"markup";s:1441:"<div class="sidebar-close visible-sm visible-xs">
+</div>";s:5:"mtime";i:1502365656;s:6:"markup";s:1442:"<div class="sidebar-close visible-sm visible-xs">
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
 {% if user %}
     <p>Hello {{ user.name }}</p>
-     <li><a href="./create">Nowa wiadomość</a></li>
+     <li><a href="../create">Nowa wiadomość</a></li>
      <a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
 {% else %}
     <p>Nobody is logged in</p>

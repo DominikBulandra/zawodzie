@@ -42,13 +42,16 @@ class Create extends ComponentBase
     }
 
      public function onSave(){
+        $string=Input::get('title');
 
        $user = Auth::getUser();
         $post = new BlogPost;
         $post->title = Input::get('title');
-        $post->slug = Input::get('slug');
+        $post->slug = $string = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', mb_convert_case($string, MB_CASE_LOWER))."\n");
         $post->content = Input::get('content');
         $post->user_id=$user->id;
+        $post->published_at= date("Y-m-d H:i:s");
+        $post->published='1';
 
         $post->save();
         

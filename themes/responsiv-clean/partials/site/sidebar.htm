@@ -20,7 +20,7 @@ security = "all"
 </div>
 {% if user %}
     <p>Hello {{ user.name }}</p>
-     <li><a href="./create">Nowa wiadomość</a></li>
+     <li><a href="../create">Nowa wiadomość</a></li>
      <a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
 {% else %}
     <p>Nobody is logged in</p>

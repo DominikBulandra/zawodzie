@@ -26,7 +26,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
             echo "    <p>Hello ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", array()), "html", null, true);
             echo "</p>
-     <li><a href=\"./create\">Nowa wiadomość</a></li>
+     <li><a href=\"../create\">Nowa wiadomość</a></li>
      <a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Sign out</a>
 ";
         } else {
@@ -137,7 +137,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 </div>
 {% if user %}
     <p>Hello {{ user.name }}</p>
-     <li><a href=\"./create\">Nowa wiadomość</a></li>
+     <li><a href=\"../create\">Nowa wiadomość</a></li>
      <a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Sign out</a>
 {% else %}
     <p>Nobody is logged in</p>

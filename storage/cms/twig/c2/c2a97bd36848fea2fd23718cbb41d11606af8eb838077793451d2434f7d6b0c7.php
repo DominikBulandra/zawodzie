@@ -35,16 +35,11 @@ class __TwigTemplate_10c1c024c1d20c566df5a35429a65d3d25d10c3c96f599a75d8316280a5
 <input type=\"text\" name=\"title\" class=\"form-control \" id=\"pwd\">
 </div>
 </div>
-<div class=\"form-group\">
-<label class=\"control-label col-sm-2\" for=\"pwd\">slug</label>
- <div class=\"col-sm-7\">
-<input type=\"text\" name=\"slug\" class=\"form-control\" id=\"pwd\">
-</div>
-</div>
+
 <div class=\"form-group\">
 <label class=\"control-label col-sm-2\" for=\"pwd\">Treść</label>
  <div class=\"col-sm-7\">
-<input type=\"content\" name=\"content\" class=\"form-control\" rows=\"5\" id=\"comment\">
+<textarea id=\"textarea\" name=\"content\" rows=\"5\" class=\"form-control col-xs-12\"></textarea>
 </div>
  <div class=\"col-sm-7\">
 <button type=\"submit\" class=\"btn btn-default\">Dodaj</button>
@@ -53,16 +48,16 @@ class __TwigTemplate_10c1c024c1d20c566df5a35429a65d3d25d10c3c96f599a75d8316280a5
      
     </div>
 ";
-        $_type = isset($context["type"]) ? $context["type"] : null;        $_message = isset($context["message"]) ? $context["message"] : null;        // line 29
+        $_type = isset($context["type"]) ? $context["type"] : null;        $_message = isset($context["message"]) ? $context["message"] : null;        // line 24
         $context["type"] = "success"        ;        foreach (Flash::success        () as $message) {
-            $context["message"] = $message;            // line 30
+            $context["message"] = $message;            // line 25
             echo "    <p> ";
             echo twig_escape_filter($this->env, (isset($context["massage"]) ? $context["massage"] : null), "html", null, true);
             echo " </p>
 
 ";
         }
-        $context["type"] = $_type;        $context["message"] = $_message;        // line 33
+        $context["type"] = $_type;        $context["message"] = $_message;        // line 28
         echo "</form>
 </div>
 ";
@@ -80,7 +75,7 @@ class __TwigTemplate_10c1c024c1d20c566df5a35429a65d3d25d10c3c96f599a75d8316280a5
 
     public function getDebugInfo()
     {
-        return array (  66 => 33,  59 => 30,  57 => 29,  29 => 3,  22 => 2,  19 => 1,);
+        return array (  61 => 28,  54 => 25,  52 => 24,  29 => 3,  22 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -104,16 +99,11 @@ class __TwigTemplate_10c1c024c1d20c566df5a35429a65d3d25d10c3c96f599a75d8316280a5
 <input type=\"text\" name=\"title\" class=\"form-control \" id=\"pwd\">
 </div>
 </div>
-<div class=\"form-group\">
-<label class=\"control-label col-sm-2\" for=\"pwd\">slug</label>
- <div class=\"col-sm-7\">
-<input type=\"text\" name=\"slug\" class=\"form-control\" id=\"pwd\">
-</div>
-</div>
+
 <div class=\"form-group\">
 <label class=\"control-label col-sm-2\" for=\"pwd\">Treść</label>
  <div class=\"col-sm-7\">
-<input type=\"content\" name=\"content\" class=\"form-control\" rows=\"5\" id=\"comment\">
+<textarea id=\"textarea\" name=\"content\" rows=\"5\" class=\"form-control col-xs-12\"></textarea>
 </div>
  <div class=\"col-sm-7\">
 <button type=\"submit\" class=\"btn btn-default\">Dodaj</button>

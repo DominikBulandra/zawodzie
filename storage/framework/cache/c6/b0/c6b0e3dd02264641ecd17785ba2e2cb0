@@ -1,4 +1,4 @@
-1502360907a:1:{s:13:"blog/post.htm";a:7:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:1199:"[blogPost]
+1502370948a:1:{s:13:"blog/post.htm";a:7:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:1199:"[blogPost]
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
 
