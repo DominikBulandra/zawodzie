@@ -12,6 +12,8 @@ categoryPage = "blog/category"
 less[] = "pages/blog.less"
 ==
 <?php
+
+use RainLab\Blog\Models\Post;
 function onEnd()
 {
     if ($this->post) {
@@ -21,12 +23,21 @@ function onEnd()
         return Redirect::to($this->pageUrl('404'));
     }
 }
+function postdelete()
+{
+     Db::table('rainlab_blog_posts')->where('id', '=', $this->post->id)->delete();
+     }
+       
 ?>
 ==
 {% set image = post.featured_images.first %}
 {% set nextPost = blogPost.nextPost %}
 {% set lastPost = blogPost.previousPost %}
 {% set author = blogPost.PostAuth %}
+{% set blogpost = blogPost %}
+{% set authordel = blogPost.PostCheckDelete %}
+{% framework %}
+{% framework extras %}
 <div class="post-single">
     <article>
         {% if image %}
@@ -45,7 +56,19 @@ function onEnd()
         <footer>
             <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
             {% if author.count %}
-            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }}</span>
+            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }} {{authordel}}</span>
+            {% endif %}
+            {% if authordel=='tak' %}
+            <a href=postdelete>Edytuj</a>
+            <form data-request="PostDelete">
+
+    <!-- Action button -->
+    <button type="submit">Usuń</button>
+
+</form>
+{% framework extras %}
+            <a data-request="PostDelete" data-request-redirect="/"><p>Usuń</p></a>
+            <a data-request="PostDelete" data-request-data="redirect: '/good-bye'">Wyloguj</a>
             {% endif %}
             {% if post.categories.count %} in
                 <span class="category">

@@ -5,6 +5,8 @@ use Cms\Classes\ComponentBase;
 use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\User\Models\user as UserRain;
 use RainLab\User\Facades\Auth;
+use Redirect;
+use Flash;
 class Post extends ComponentBase
 {
     /**
@@ -74,6 +76,66 @@ class Post extends ComponentBase
         $user2=$user2->findById($post->user_id);
         
         return $user2;
+
+    }
+     public function PostCheckDelete()
+    {
+         if ($loggedIn = Auth::check()) {
+             $slug = $this->property('slug');
+
+        $post = new BlogPost;
+
+        $post = $post->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
+            ? $post->transWhere('slug', $slug)
+            : $post->where('slug', $slug);
+
+        $post = $post->isPublished()->first();
+
+
+          $user2 = new UserRain;
+
+       
+        $user2=$user2->findById($post->user_id);
+        $user3=Auth::getUser();
+        if ($user2!=null) {
+              if ($user2->id=$user3->id) {
+            return 'tak';
+        }
+
+        else {
+            return 'no';
+        }
+        }
+         }
+         
+      
+        else {
+            return 'no';
+            # code...
+        }
+        
+
+    }
+     public function PostDelete()
+    {
+        
+
+        $post = new BlogPost;
+
+        $post = $post->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
+            ? $post->transWhere('slug', $slug)
+            : $post->where('slug', $slug);
+
+        $post = $post->isPublished()->first();
+
+
+         
+         Db::table('rainlab_blog_posts')->where('id', '=', $post->id)->delete();
+       Flash::success('Post deleted');
+       return Redirect::back();
+
+       
+       
 
     }
 

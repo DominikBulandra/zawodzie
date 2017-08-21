@@ -1,10 +1,11 @@
+[viewBag]
+
 [blogPost]
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
-
-[viewBag]
 ==
 {% set image = post.featured_images.first %}
+{% set author = post.PostAuth %}
 
 <article>
 
@@ -19,12 +20,13 @@ categoryPage = "blog/category"
     {% endif %}
 
     <div class="post-content">
-        {{ post.summary|raw }} {{ post.PostAuth.name }} 
+        {{ post.summary|raw }} {{ post.PostAuth.name }}
     </div>
 
     <footer>
         <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
-        {# <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}</span> #}
+        <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}{{ author.name }}</span>
+         
         {% if post.categories.count %} in
             <span class="category">
                 <i class="icon icon-folder-open"></i>

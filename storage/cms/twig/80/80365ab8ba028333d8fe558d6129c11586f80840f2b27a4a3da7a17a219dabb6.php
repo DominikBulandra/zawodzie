@@ -18,16 +18,18 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
         // line 1
         $context["image"] = $this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "featured_images", array()), "first", array());
         // line 2
+        $context["author"] = $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "PostAuth", array());
+        // line 3
         echo "
 <article>
 
     ";
-        // line 5
+        // line 6
         if ((isset($context["image"]) ? $context["image"] : null)) {
-            // line 6
+            // line 7
             echo "        <div class=\"post-image\">
             <a href=\"";
-            // line 7
+            // line 8
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "url", array()), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : null), "path", array()), "html", null, true);
@@ -37,10 +39,10 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
         </div>
     ";
         } else {
-            // line 10
+            // line 11
             echo "        <header class=\"post-title\">
             <h1><a href=\"";
-            // line 11
+            // line 12
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "url", array()), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "title", array()), "html", null, true);
@@ -48,31 +50,37 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
         </header>
     ";
         }
-        // line 14
+        // line 15
         echo "
     <div class=\"post-content\">
         ";
-        // line 16
+        // line 17
         echo $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "summary", array());
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "PostAuth", array()), "name", array()), "html", null, true);
-        echo " 
+        echo " hhh
     </div>
 
     <footer>
         <span class=\"published\"><i class=\"icon icon-calendar\"></i> ";
-        // line 20
+        // line 21
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "published_at", array()), "M d, Y"), "html", null, true);
         echo "</span>
-        ";
+        <span class=\"author\"><i class=\"icon icon-user\"></i> ";
         // line 22
-        echo "        ";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "author", array()), "full_name", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["author"]) ? $context["author"] : null), "name", array()), "html", null, true);
+        echo "</span>
+          <a data-request=\"PostDelete\" data-request-redirect=\"/\"><p>Usuń</p></a>
+            <a data-request=\"PostDelete\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a>
+        ";
+        // line 25
         if ($this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "categories", array()), "count", array())) {
             echo " in
             <span class=\"category\">
                 <i class=\"icon icon-folder-open\"></i>
                 ";
-            // line 25
+            // line 28
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "categories", array()));
             $context['loop'] = array(
@@ -89,7 +97,7 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 26
+                // line 29
                 echo "                    <a href=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "url", array()), "html", null, true);
                 echo "\">";
@@ -98,7 +106,7 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
                 if ( !$this->getAttribute($context["loop"], "last", array())) {
                     echo ", ";
                 }
-                // line 27
+                // line 30
                 echo "                ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -112,11 +120,11 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 28
+            // line 31
             echo "            </span>
         ";
         }
-        // line 30
+        // line 33
         echo "    </footer>
 </article>";
     }
@@ -133,7 +141,7 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
 
     public function getDebugInfo()
     {
-        return array (  120 => 30,  116 => 28,  102 => 27,  93 => 26,  76 => 25,  69 => 22,  65 => 20,  56 => 16,  52 => 14,  44 => 11,  41 => 10,  31 => 7,  28 => 6,  26 => 5,  21 => 2,  19 => 1,);
+        return array (  128 => 33,  124 => 31,  110 => 30,  101 => 29,  84 => 28,  78 => 25,  71 => 22,  67 => 21,  58 => 17,  54 => 15,  46 => 12,  43 => 11,  33 => 8,  30 => 7,  28 => 6,  23 => 3,  21 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -147,6 +155,7 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
     public function getSourceContext()
     {
         return new Twig_Source("{% set image = post.featured_images.first %}
+{% set author = post.PostAuth %}
 
 <article>
 
@@ -161,12 +170,14 @@ class __TwigTemplate_9c64ffb0ee31adf6da91974b7fed15a51a64548cee3096c343dc750c695
     {% endif %}
 
     <div class=\"post-content\">
-        {{ post.summary|raw }} {{ post.PostAuth.name }} 
+        {{ post.summary|raw }} {{ post.PostAuth.name }} hhh
     </div>
 
     <footer>
         <span class=\"published\"><i class=\"icon icon-calendar\"></i> {{ post.published_at|date('M d, Y') }}</span>
-        {# <span class=\"author\"><i class=\"icon icon-user\"></i> {{ post.author.full_name }}</span> #}
+        <span class=\"author\"><i class=\"icon icon-user\"></i> {{ post.author.full_name }}{{ author.name }}</span>
+          <a data-request=\"PostDelete\" data-request-redirect=\"/\"><p>Usuń</p></a>
+            <a data-request=\"PostDelete\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a>
         {% if post.categories.count %} in
             <span class=\"category\">
                 <i class=\"icon icon-folder-open\"></i>

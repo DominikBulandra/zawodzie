@@ -19,12 +19,12 @@ security = "all"
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
 {% if user %}
-    <p>Hello {{ user.name }}</p>
-     <li><a href="../create">Nowa wiadomość</a></li>
-     <a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
+   <h5> <p>Witaj {{ user.name }}</p></h5>
+     <li><a href="/strona2/create">Nowa wiadomość</a></li>
+     <li><a data-request="onLogout" data-request-data="redirect: '/good-bye'">Wyloguj</a></li>
 {% else %}
-    <p>Nobody is logged in</p>
-    <li><a href="./login">Zaloguj</a></li>
+    <p>Nikt nie jest zalogowany</p>
+    <li><a href="/strona2/login">Zaloguj</a></li>
 {% endif %}
 
 <div class="sidebar-segment hidden-sm hidden-xs">
@@ -37,7 +37,7 @@ security = "all"
 </div>
 
 <div class="sidebar-segment">
-    <h2 class="segment-title">Recent posts</h2>
+    <h2 class="segment-title">Ostatnie wiadomości</h2>
     
     <ul class="segment-list">
         {% for post in blogPosts.posts %}

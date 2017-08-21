@@ -23,16 +23,16 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
         // line 4
         if ((isset($context["user"]) ? $context["user"] : null)) {
             // line 5
-            echo "    <p>Hello ";
+            echo "   <h5> <p>Witaj ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", array()), "html", null, true);
-            echo "</p>
-     <li><a href=\"../create\">Nowa wiadomość</a></li>
-     <a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Sign out</a>
+            echo "</p></h5>
+     <li><a href=\"/strona2/create\">Nowa wiadomość</a></li>
+     <li><a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a></li>
 ";
         } else {
             // line 9
-            echo "    <p>Nobody is logged in</p>
-    <li><a href=\"./login\">Zaloguj</a></li>
+            echo "    <p>Nikt nie jest zalogowany</p>
+    <li><a href=\"/strona2/login\">Zaloguj</a></li>
 ";
         }
         // line 12
@@ -55,7 +55,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 </div>
 
 <div class=\"sidebar-segment\">
-    <h2 class=\"segment-title\">Recent posts</h2>
+    <h2 class=\"segment-title\">Ostatnie wiadomości</h2>
     
     <ul class=\"segment-list\">
         ";
@@ -136,12 +136,12 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
     <a href=\"javascript:;\" onclick=\"toggleSidebar()\" class=\"close\">&times;</a>
 </div>
 {% if user %}
-    <p>Hello {{ user.name }}</p>
-     <li><a href=\"../create\">Nowa wiadomość</a></li>
-     <a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Sign out</a>
+   <h5> <p>Witaj {{ user.name }}</p></h5>
+     <li><a href=\"/strona2/create\">Nowa wiadomość</a></li>
+     <li><a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a></li>
 {% else %}
-    <p>Nobody is logged in</p>
-    <li><a href=\"./login\">Zaloguj</a></li>
+    <p>Nikt nie jest zalogowany</p>
+    <li><a href=\"/strona2/login\">Zaloguj</a></li>
 {% endif %}
 
 <div class=\"sidebar-segment hidden-sm hidden-xs\">
@@ -154,7 +154,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 </div>
 
 <div class=\"sidebar-segment\">
-    <h2 class=\"segment-title\">Recent posts</h2>
+    <h2 class=\"segment-title\">Ostatnie wiadomości</h2>
     
     <ul class=\"segment-list\">
         {% for post in blogPosts.posts %}

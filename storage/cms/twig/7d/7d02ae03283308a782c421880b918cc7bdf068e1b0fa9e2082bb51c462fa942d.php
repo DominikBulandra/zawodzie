@@ -24,15 +24,29 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
         // line 4
         $context["author"] = $this->getAttribute((isset($context["blogPost"]) ? $context["blogPost"] : null), "PostAuth", array());
         // line 5
+        $context["blogpost"] = (isset($context["blogPost"]) ? $context["blogPost"] : null);
+        // line 6
+        $context["authordel"] = $this->getAttribute((isset($context["blogPost"]) ? $context["blogPost"] : null), "PostCheckDelete", array());
+        // line 7
+        echo '<script src="'. Request::getBasePath()
+                .'/modules/system/assets/js/framework.js"></script>'.PHP_EOL;
+        // line 8
+        echo '<script src="'. Request::getBasePath()
+                .'/modules/system/assets/js/framework.js"></script>'.PHP_EOL;
+        echo '<script src="'. Request::getBasePath()
+                    .'/modules/system/assets/js/framework.extras.js"></script>'.PHP_EOL;
+        echo '<link rel="stylesheet" property="stylesheet" href="'. Request::getBasePath()
+                    .'/modules/system/assets/css/framework.extras.css">'.PHP_EOL;
+        // line 9
         echo "<div class=\"post-single\">
     <article>
         ";
-        // line 7
+        // line 11
         if ((isset($context["image"]) ? $context["image"] : null)) {
-            // line 8
+            // line 12
             echo "            <div class=\"post-image\">
                 <img src=\"";
-            // line 9
+            // line 13
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : null), "path", array()), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "title", array()), "html", null, true);
@@ -40,44 +54,70 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
             </div>
         ";
         }
-        // line 12
+        // line 16
         echo "        <header class=\"post-title\">
             <h1>";
-        // line 13
+        // line 17
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "title", array()), "html", null, true);
         echo "</h1>
         </header>
 
         <div class=\"post-content\">
             ";
-        // line 17
+        // line 21
         echo $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "content_html", array());
         echo "
         </div>
 
         <footer>
             <span class=\"published\"><i class=\"icon icon-calendar\"></i> ";
-        // line 21
+        // line 25
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["post"]) ? $context["post"] : null), "published_at", array()), "M d, Y"), "html", null, true);
         echo "</span>
             ";
-        // line 22
+        // line 26
         if ($this->getAttribute((isset($context["author"]) ? $context["author"] : null), "count", array())) {
-            // line 23
+            // line 27
             echo "            <span class=\"author\"><i class=\"icon icon-user\"></i> ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["author"]) ? $context["author"] : null), "name", array()), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "author", array()), "full_name", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, (isset($context["authordel"]) ? $context["authordel"] : null), "html", null, true);
             echo "</span>
             ";
         }
-        // line 25
+        // line 29
+        echo "            ";
+        if (((isset($context["authordel"]) ? $context["authordel"] : null) == "tak")) {
+            // line 30
+            echo "            <a href=postdelete>Edytuj</a>
+            <form data-request=\"PostDelete\">
+
+    <!-- Action button -->
+    <button type=\"submit\">Usuń</button>
+
+</form>
+";
+            // line 37
+            echo '<script src="'. Request::getBasePath()
+                .'/modules/system/assets/js/framework.js"></script>'.PHP_EOL;
+            echo '<script src="'. Request::getBasePath()
+                    .'/modules/system/assets/js/framework.extras.js"></script>'.PHP_EOL;
+            echo '<link rel="stylesheet" property="stylesheet" href="'. Request::getBasePath()
+                    .'/modules/system/assets/css/framework.extras.css">'.PHP_EOL;
+            // line 38
+            echo "            <a data-request=\"PostDelete\" data-request-redirect=\"/\"><p>Usuń</p></a>
+            <a data-request=\"PostDelete\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a>
+            ";
+        }
+        // line 41
         echo "            ";
         if ($this->getAttribute($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "categories", array()), "count", array())) {
             echo " in
                 <span class=\"category\">
                     <i class=\"icon icon-folder-open\"></i>
                     ";
-            // line 28
+            // line 44
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["post"]) ? $context["post"] : null), "categories", array()));
             $context['loop'] = array(
@@ -94,7 +134,7 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 29
+                // line 45
                 echo "                        <a href=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "url", array()), "html", null, true);
                 echo "\">";
@@ -103,7 +143,7 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
                 if ( !$this->getAttribute($context["loop"], "last", array())) {
                     echo ", ";
                 }
-                // line 30
+                // line 46
                 echo "                    ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -117,45 +157,45 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 31
+            // line 47
             echo "                </span>
             ";
         }
-        // line 33
+        // line 49
         echo "        </footer>
     </article>
     <nav class=\"post-links\">
         ";
-        // line 36
+        // line 52
         if ((isset($context["lastPost"]) ? $context["lastPost"] : null)) {
-            // line 37
+            // line 53
             echo "            <a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["lastPost"]) ? $context["lastPost"] : null), "url", array()), "html", null, true);
             echo "\" class=\"link-previous\">
                 <p>Previous</p>
                 <span>";
-            // line 39
+            // line 55
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["lastPost"]) ? $context["lastPost"] : null), "title", array()), "html", null, true);
             echo "</span>
             </a>
         ";
         }
-        // line 42
+        // line 58
         echo "        ";
         if ((isset($context["nextPost"]) ? $context["nextPost"] : null)) {
-            // line 43
+            // line 59
             echo "            <a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["nextPost"]) ? $context["nextPost"] : null), "url", array()), "html", null, true);
             echo "\" class=\"link-next\">
                 <p>Next</p>
                 <span>";
-            // line 45
+            // line 61
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["nextPost"]) ? $context["nextPost"] : null), "title", array()), "html", null, true);
             echo "</span>
             </a>
         ";
         }
-        // line 48
+        // line 64
         echo "    </nav>
 </div>";
     }
@@ -172,7 +212,7 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
 
     public function getDebugInfo()
     {
-        return array (  159 => 48,  153 => 45,  147 => 43,  144 => 42,  138 => 39,  132 => 37,  130 => 36,  125 => 33,  121 => 31,  107 => 30,  98 => 29,  81 => 28,  74 => 25,  67 => 23,  65 => 22,  61 => 21,  54 => 17,  47 => 13,  44 => 12,  36 => 9,  33 => 8,  31 => 7,  27 => 5,  25 => 4,  23 => 3,  21 => 2,  19 => 1,);
+        return array (  199 => 64,  193 => 61,  187 => 59,  184 => 58,  178 => 55,  172 => 53,  170 => 52,  165 => 49,  161 => 47,  147 => 46,  138 => 45,  121 => 44,  114 => 41,  109 => 38,  102 => 37,  93 => 30,  90 => 29,  81 => 27,  79 => 26,  75 => 25,  68 => 21,  61 => 17,  58 => 16,  50 => 13,  47 => 12,  45 => 11,  41 => 9,  34 => 8,  31 => 7,  29 => 6,  27 => 5,  25 => 4,  23 => 3,  21 => 2,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -189,6 +229,10 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
 {% set nextPost = blogPost.nextPost %}
 {% set lastPost = blogPost.previousPost %}
 {% set author = blogPost.PostAuth %}
+{% set blogpost = blogPost %}
+{% set authordel = blogPost.PostCheckDelete %}
+{% framework %}
+{% framework extras %}
 <div class=\"post-single\">
     <article>
         {% if image %}
@@ -207,7 +251,19 @@ class __TwigTemplate_77faca140694ab79808d80d01a3194e2b577a1253b4efb4b3d6aa4100e8
         <footer>
             <span class=\"published\"><i class=\"icon icon-calendar\"></i> {{ post.published_at|date('M d, Y') }}</span>
             {% if author.count %}
-            <span class=\"author\"><i class=\"icon icon-user\"></i> {{ author.name }}{{ post.author.full_name }}</span>
+            <span class=\"author\"><i class=\"icon icon-user\"></i> {{ author.name }}{{ post.author.full_name }} {{authordel}}</span>
+            {% endif %}
+            {% if authordel=='tak' %}
+            <a href=postdelete>Edytuj</a>
+            <form data-request=\"PostDelete\">
+
+    <!-- Action button -->
+    <button type=\"submit\">Usuń</button>
+
+</form>
+{% framework extras %}
+            <a data-request=\"PostDelete\" data-request-redirect=\"/\"><p>Usuń</p></a>
+            <a data-request=\"PostDelete\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a>
             {% endif %}
             {% if post.categories.count %} in
                 <span class=\"category\">
