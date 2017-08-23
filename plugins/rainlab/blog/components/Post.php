@@ -4,9 +4,12 @@ use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\User\Models\user as UserRain;
+
 use RainLab\User\Facades\Auth;
 use Redirect;
 use Flash;
+use Input;
+use DB;
 class Post extends ComponentBase
 {
     /**
@@ -116,23 +119,18 @@ class Post extends ComponentBase
         
 
     }
-     public function PostDelete()
+     public function onDelete()
     {
-        
-
-        $post = new BlogPost;
-
-        $post = $post->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
-            ? $post->transWhere('slug', $slug)
-            : $post->where('slug', $slug);
-
-        $post = $post->isPublished()->first();
-
-
          
-         Db::table('rainlab_blog_posts')->where('id', '=', $post->id)->delete();
-       Flash::success('Post deleted');
-       return Redirect::back();
+         $slug=Input::get('var');
+
+    
+
+        Flash::success('Usunięto wiadomość');
+         
+         Db::table('rainlab_blog_posts')->where('id', '=', $slug)->delete();
+       
+       return Redirect::to('/');
 
        
        
@@ -145,11 +143,13 @@ class Post extends ComponentBase
 
         $post = new BlogPost;
 
+
         $post = $post->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
             ? $post->transWhere('slug', $slug)
             : $post->where('slug', $slug);
 
         $post = $post->isPublished()->first();
+       
 
         /*
          * Add a "url" helper attribute for linking to each category

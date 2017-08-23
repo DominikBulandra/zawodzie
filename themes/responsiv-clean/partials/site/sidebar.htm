@@ -18,6 +18,9 @@ security = "all"
 <div class="sidebar-close visible-sm visible-xs">
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
+{% flash success %}
+   <div class="alert alert-success" >{{ message }}</div>
+{% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
      <li><a href="/strona2/create">Nowa wiadomość</a></li>

@@ -8,9 +8,10 @@ use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\Blog\Models\Category as BlogCategory;
 use Input;
 use Flash;
+use DB;
 use RainLab\User\Models\User as UserModel;
 use RainLab\User\Facades\Auth;
-class Create extends ComponentBase
+class edit extends ComponentBase
 {
    
     
@@ -18,9 +19,21 @@ class Create extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'rainlab.blog::lang.settings.create_title',
-            'description' => 'rainlab.blog::lang.settings.create_description'
+            'name'        => 'Edytuj',
+            'description' => 'Edytuj post'
         ];
+    }
+      public function onRun()
+    {
+        
+
+        
+        $id = $this->param('slug');
+        $post = Db::table('rainlab_blog_posts')->where('id', $id)->first();
+        $this->page['content']=$post->content; 
+        $this->page['title']=$post->title; 
+
+       
     }
 
     public function defineProperties()
@@ -41,24 +54,21 @@ class Create extends ComponentBase
         ];
     }
 
-     public function onSave(){
-        $string=Input::get('title');
+     public function onEdit(){
 
-       $user = Auth::getUser();
-        $post = new BlogPost;
-        $post->title = Input::get('title');
-        $post->slug = $string = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', mb_convert_case($string, MB_CASE_LOWER))."\n");
-        $post->content = Input::get('content');
-        $post->user_id=$user->id;
-        $post->published_at= date("Y-m-d H:i:s");
-        $post->published='1';
-
-        $post->save();
+        $id = $this->param('slug');
+        $post = Db::table('rainlab_blog_posts')->where('id', $id)->first();
+       Db::table('rainlab_blog_posts')
+    ->where('id', $id)
+    ->update(['title' => Input::get('title')],['content' => Input::get('content')]);
+       
+     
         
-       Flash::success('Wiadomość dodana');
+       Flash::success('Wiadomość zmieniona');
        return Redirect::back();
 
     }
+   
 
    
     

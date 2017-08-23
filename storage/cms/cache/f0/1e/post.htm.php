@@ -1,6 +1,6 @@
 <?php 
 use RainLab\Blog\Models\Post;
-class Cms599ad9697fe40021000177_e9d55620a13b7cdde1b5d4640a88cae7Class extends \Cms\Classes\PageCode
+class Cms599d5e13a5847272657081_528de8f493efa119388d4cffdf1c1822Class extends \Cms\Classes\PageCode
 {
 public function onEnd()
 {

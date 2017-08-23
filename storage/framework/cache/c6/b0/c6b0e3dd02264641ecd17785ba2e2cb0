@@ -1,4 +1,4 @@
-1503322306a:1:{s:13:"blog/post.htm";a:7:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:1426:"[viewBag]
+1503490481a:1:{s:13:"blog/post.htm";a:7:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:1254:"[viewBag]
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -20,14 +20,13 @@ categoryPage = "blog/category"
     {% endif %}
 
     <div class="post-content">
-        {{ post.summary|raw }} {{ post.PostAuth.name }} hhh
+        {{ post.summary|raw }} {{ post.PostAuth.name }}
     </div>
 
     <footer>
         <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
         <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}{{ author.name }}</span>
-          <a data-request="PostDelete" data-request-redirect="/"><p>Usuń</p></a>
-            <a data-request="PostDelete" data-request-data="redirect: '/good-bye'">Wyloguj</a>
+         
         {% if post.categories.count %} in
             <span class="category">
                 <i class="icon icon-folder-open"></i>
@@ -37,7 +36,7 @@ categoryPage = "blog/category"
             </span>
         {% endif %}
     </footer>
-</article>";s:5:"mtime";i:1503321692;s:6:"markup";s:1343:"{% set image = post.featured_images.first %}
+</article>";s:5:"mtime";i:1503321737;s:6:"markup";s:1171:"{% set image = post.featured_images.first %}
 {% set author = post.PostAuth %}
 
 <article>
@@ -53,14 +52,13 @@ categoryPage = "blog/category"
     {% endif %}
 
     <div class="post-content">
-        {{ post.summary|raw }} {{ post.PostAuth.name }} hhh
+        {{ post.summary|raw }} {{ post.PostAuth.name }}
     </div>
 
     <footer>
         <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
         <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}{{ author.name }}</span>
-          <a data-request="PostDelete" data-request-redirect="/"><p>Usuń</p></a>
-            <a data-request="PostDelete" data-request-data="redirect: '/good-bye'">Wyloguj</a>
+         
         {% if post.categories.count %} in
             <span class="category">
                 <i class="icon icon-folder-open"></i>

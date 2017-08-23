@@ -20,9 +20,17 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
     <a href=\"javascript:;\" onclick=\"toggleSidebar()\" class=\"close\">&times;</a>
 </div>
 ";
-        // line 4
+        $_type = isset($context["type"]) ? $context["type"] : null;        $_message = isset($context["message"]) ? $context["message"] : null;        // line 4
+        $context["type"] = "success"        ;        foreach (Flash::success        () as $message) {
+            $context["message"] = $message;            // line 5
+            echo "   <div class=\"alert alert-success\" >";
+            echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
+            echo "</div>
+";
+        }
+        $context["type"] = $_type;        $context["message"] = $_message;        // line 7
         if ((isset($context["user"]) ? $context["user"] : null)) {
-            // line 5
+            // line 8
             echo "   <h5> <p>Witaj ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", array()), "html", null, true);
             echo "</p></h5>
@@ -30,17 +38,17 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
      <li><a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a></li>
 ";
         } else {
-            // line 9
+            // line 12
             echo "    <p>Nikt nie jest zalogowany</p>
     <li><a href=\"/strona2/login\">Zaloguj</a></li>
 ";
         }
-        // line 12
+        // line 15
         echo "
 <div class=\"sidebar-segment hidden-sm hidden-xs\">
     <h1 class=\"site-name\">
         <a href=\"";
-        // line 15
+        // line 18
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFilter("home");
         echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "site_name", array()), "html", null, true);
@@ -48,7 +56,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
     </h1>
     <p class=\"site-motto\">
         ";
-        // line 18
+        // line 21
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "site_motto", array()), "html", null, true);
         echo "
     </p>
@@ -59,11 +67,11 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
     
     <ul class=\"segment-list\">
         ";
-        // line 26
+        // line 29
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["blogPosts"]) ? $context["blogPosts"] : null), "posts", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-            // line 27
+            // line 30
             echo "            <li><a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["post"], "url", array()), "html", null, true);
             echo "\">";
@@ -74,7 +82,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 32
         echo "    </ul>
 </div>
 
@@ -82,24 +90,24 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
     <h2 class=\"segment-title\">Follow me</h2>
     <ul class=\"segment-list\">
         ";
-        // line 35
+        // line 38
         if ($this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "twitter_url", array())) {
-            // line 36
+            // line 39
             echo "            <li><a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "twitter_url", array()), "html", null, true);
             echo "\" target=\"_blank\">Twitter</a></li>
         ";
         }
-        // line 38
+        // line 41
         echo "        ";
         if ($this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "facebook_url", array())) {
-            // line 39
+            // line 42
             echo "            <li><a href=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["this"]) ? $context["this"] : null), "theme", array()), "facebook_url", array()), "html", null, true);
             echo "\" target=\"_blank\">Facebook</a></li>
         ";
         }
-        // line 41
+        // line 44
         echo "        <li><a href=\"";
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFilter("blog/rss");
         echo "\">RSS Feed</a></li>
@@ -119,7 +127,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 
     public function getDebugInfo()
     {
-        return array (  103 => 41,  97 => 39,  94 => 38,  88 => 36,  86 => 35,  78 => 29,  67 => 27,  63 => 26,  52 => 18,  44 => 15,  39 => 12,  34 => 9,  26 => 5,  24 => 4,  19 => 1,);
+        return array (  111 => 44,  105 => 42,  102 => 41,  96 => 39,  94 => 38,  86 => 32,  75 => 30,  71 => 29,  60 => 21,  52 => 18,  47 => 15,  42 => 12,  34 => 8,  32 => 7,  26 => 5,  24 => 4,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -135,6 +143,9 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
         return new Twig_Source("<div class=\"sidebar-close visible-sm visible-xs\">
     <a href=\"javascript:;\" onclick=\"toggleSidebar()\" class=\"close\">&times;</a>
 </div>
+{% flash success %}
+   <div class=\"alert alert-success\" >{{ message }}</div>
+{% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
      <li><a href=\"/strona2/create\">Nowa wiadomość</a></li>

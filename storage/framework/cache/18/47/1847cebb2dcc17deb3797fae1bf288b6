@@ -1,4 +1,4 @@
-1503321864a:1:{s:13:"blog/post.htm";a:12:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:2869:"title = "Blog Post"
+1503490479a:1:{s:13:"blog/post.htm";a:12:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:2749:"title = "Blog Post"
 url = "/blog/post/:slug"
 layout = "default"
 description = "Viewing a single blog post"
@@ -56,20 +56,17 @@ function postdelete()
         <footer>
             <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
             {% if author.count %}
-            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }} {{authordel}}</span>
+            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }}</span>
             {% endif %}
             {% if authordel=='tak' %}
-            <a href=postdelete>Edytuj</a>
-            <form data-request="PostDelete">
-
-    <!-- Action button -->
-    <button type="submit">Usuń</button>
-
-</form>
+            <a href="{{ 'edit'|page({ slug: post.id })}}" data-request-data="var: {{post.id}}">Edytuj</a>
+           
 {% framework extras %}
-            <a data-request="PostDelete" data-request-redirect="/"><p>Usuń</p></a>
-            <a data-request="PostDelete" data-request-data="redirect: '/good-bye'">Wyloguj</a>
+            <a data-request="onDelete" data-request-data="var: {{post.id}}"><p>Usuń</p></a>
+           
             {% endif %}
+            
+ 
             {% if post.categories.count %} in
                 <span class="category">
                     <i class="icon icon-folder-open"></i>
@@ -95,7 +92,7 @@ function postdelete()
         {% endif %}
     </nav>
 </div>
-";s:5:"mtime";i:1503320416;s:6:"markup";s:2308:"{% set image = post.featured_images.first %}
+";s:5:"mtime";i:1503485456;s:6:"markup";s:2188:"{% set image = post.featured_images.first %}
 {% set nextPost = blogPost.nextPost %}
 {% set lastPost = blogPost.previousPost %}
 {% set author = blogPost.PostAuth %}
@@ -121,20 +118,17 @@ function postdelete()
         <footer>
             <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
             {% if author.count %}
-            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }} {{authordel}}</span>
+            <span class="author"><i class="icon icon-user"></i> {{ author.name }}{{ post.author.full_name }}</span>
             {% endif %}
             {% if authordel=='tak' %}
-            <a href=postdelete>Edytuj</a>
-            <form data-request="PostDelete">
-
-    <!-- Action button -->
-    <button type="submit">Usuń</button>
-
-</form>
+            <a href="{{ 'edit'|page({ slug: post.id })}}" data-request-data="var: {{post.id}}">Edytuj</a>
+           
 {% framework extras %}
-            <a data-request="PostDelete" data-request-redirect="/"><p>Usuń</p></a>
-            <a data-request="PostDelete" data-request-data="redirect: '/good-bye'">Wyloguj</a>
+            <a data-request="onDelete" data-request-data="var: {{post.id}}"><p>Usuń</p></a>
+           
             {% endif %}
+            
+ 
             {% if post.categories.count %} in
                 <span class="category">
                     <i class="icon icon-folder-open"></i>

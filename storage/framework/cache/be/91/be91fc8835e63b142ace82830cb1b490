@@ -1,4 +1,4 @@
-1503321865a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1766:"[viewBag]
+1503490482a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1861:"[viewBag]
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -18,6 +18,9 @@ security = "all"
 <div class="sidebar-close visible-sm visible-xs">
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
+{% flash success %}
+   <div class="alert alert-success" >{{ message }}</div>
+{% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
      <li><a href="/strona2/create">Nowa wiadomość</a></li>
@@ -57,9 +60,12 @@ security = "all"
         {% endif %}
         <li><a href="{{ 'blog/rss'|page }}">RSS Feed</a></li>
     </ul>
-</div>";s:5:"mtime";i:1502976043;s:6:"markup";s:1485:"<div class="sidebar-close visible-sm visible-xs">
+</div>";s:5:"mtime";i:1503394435;s:6:"markup";s:1580:"<div class="sidebar-close visible-sm visible-xs">
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
+{% flash success %}
+   <div class="alert alert-success" >{{ message }}</div>
+{% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
      <li><a href="/strona2/create">Nowa wiadomość</a></li>

@@ -1,0 +1,19 @@
+title = "edit"
+url = "/edit/:slug"
+layout = "default"
+description = "Edytuj wiadomość"
+is_hidden = 0
+
+[blogEdit]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+==
+<?php
+function onStart()
+{
+    $this["titles"] = $this->param('slug');
+     $slug=Input::get('var');
+}
+?>
+==
+{% component 'blogEdit' %}
