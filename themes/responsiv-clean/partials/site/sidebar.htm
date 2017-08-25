@@ -23,11 +23,11 @@ security = "all"
 {% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
-     <li><a href="/strona2/create">Nowa wiadomość</a></li>
+     <li><a href="{{ 'create'|page }}">Nowa wiadomość</a></li>
      <li><a data-request="onLogout" data-request-data="redirect: '/good-bye'">Wyloguj</a></li>
 {% else %}
     <p>Nikt nie jest zalogowany</p>
-    <li><a href="/strona2/login">Zaloguj</a></li>
+    <li><a href="{{ 'login'|page }}">Zaloguj</a></li>
 {% endif %}
 
 <div class="sidebar-segment hidden-sm hidden-xs">

@@ -1,4 +1,4 @@
-1503490479a:1:{s:8:"edit.htm";a:11:{s:8:"fileName";s:8:"edit.htm";s:7:"content";s:323:"title = "edit"
+1503649397a:1:{s:8:"edit.htm";a:11:{s:8:"fileName";s:8:"edit.htm";s:7:"content";s:323:"title = "edit"
 url = "/edit/:slug"
 layout = "default"
 description = "Edytuj wiadomość"

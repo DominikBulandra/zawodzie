@@ -1,4 +1,4 @@
-1503490482a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1861:"[viewBag]
+1503649579a:1:{s:16:"site/sidebar.htm";a:9:{s:8:"fileName";s:16:"site/sidebar.htm";s:7:"content";s:1869:"[viewBag]
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -23,11 +23,11 @@ security = "all"
 {% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
-     <li><a href="/strona2/create">Nowa wiadomość</a></li>
+     <li><a href="{{ 'create'|page }}">Nowa wiadomość</a></li>
      <li><a data-request="onLogout" data-request-data="redirect: '/good-bye'">Wyloguj</a></li>
 {% else %}
     <p>Nikt nie jest zalogowany</p>
-    <li><a href="/strona2/login">Zaloguj</a></li>
+    <li><a href="{{ 'login'|page }}">Zaloguj</a></li>
 {% endif %}
 
 <div class="sidebar-segment hidden-sm hidden-xs">
@@ -60,7 +60,7 @@ security = "all"
         {% endif %}
         <li><a href="{{ 'blog/rss'|page }}">RSS Feed</a></li>
     </ul>
-</div>";s:5:"mtime";i:1503394435;s:6:"markup";s:1580:"<div class="sidebar-close visible-sm visible-xs">
+</div>";s:5:"mtime";i:1503648932;s:6:"markup";s:1588:"<div class="sidebar-close visible-sm visible-xs">
     <a href="javascript:;" onclick="toggleSidebar()" class="close">&times;</a>
 </div>
 {% flash success %}
@@ -68,11 +68,11 @@ security = "all"
 {% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
-     <li><a href="/strona2/create">Nowa wiadomość</a></li>
+     <li><a href="{{ 'create'|page }}">Nowa wiadomość</a></li>
      <li><a data-request="onLogout" data-request-data="redirect: '/good-bye'">Wyloguj</a></li>
 {% else %}
     <p>Nikt nie jest zalogowany</p>
-    <li><a href="/strona2/login">Zaloguj</a></li>
+    <li><a href="{{ 'login'|page }}">Zaloguj</a></li>
 {% endif %}
 
 <div class="sidebar-segment hidden-sm hidden-xs">

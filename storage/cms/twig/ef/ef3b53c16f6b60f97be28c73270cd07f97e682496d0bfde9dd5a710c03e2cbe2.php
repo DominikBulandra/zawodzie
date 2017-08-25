@@ -34,13 +34,19 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
             echo "   <h5> <p>Witaj ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", array()), "html", null, true);
             echo "</p></h5>
-     <li><a href=\"/strona2/create\">Nowa wiadomość</a></li>
+     <li><a href=\"";
+            // line 9
+            echo $this->env->getExtension('Cms\Twig\Extension')->pageFilter("create");
+            echo "\">Nowa wiadomość</a></li>
      <li><a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a></li>
 ";
         } else {
             // line 12
             echo "    <p>Nikt nie jest zalogowany</p>
-    <li><a href=\"/strona2/login\">Zaloguj</a></li>
+    <li><a href=\"";
+            // line 13
+            echo $this->env->getExtension('Cms\Twig\Extension')->pageFilter("login");
+            echo "\">Zaloguj</a></li>
 ";
         }
         // line 15
@@ -127,7 +133,7 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 
     public function getDebugInfo()
     {
-        return array (  111 => 44,  105 => 42,  102 => 41,  96 => 39,  94 => 38,  86 => 32,  75 => 30,  71 => 29,  60 => 21,  52 => 18,  47 => 15,  42 => 12,  34 => 8,  32 => 7,  26 => 5,  24 => 4,  19 => 1,);
+        return array (  117 => 44,  111 => 42,  108 => 41,  102 => 39,  100 => 38,  92 => 32,  81 => 30,  77 => 29,  66 => 21,  58 => 18,  53 => 15,  48 => 13,  45 => 12,  39 => 9,  34 => 8,  32 => 7,  26 => 5,  24 => 4,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -148,11 +154,11 @@ class __TwigTemplate_d59d180a7f271a14b090c0a9f4984c72a04a773114f784961d990c77a75
 {% endflash %}
 {% if user %}
    <h5> <p>Witaj {{ user.name }}</p></h5>
-     <li><a href=\"/strona2/create\">Nowa wiadomość</a></li>
+     <li><a href=\"{{ 'create'|page }}\">Nowa wiadomość</a></li>
      <li><a data-request=\"onLogout\" data-request-data=\"redirect: '/good-bye'\">Wyloguj</a></li>
 {% else %}
     <p>Nikt nie jest zalogowany</p>
-    <li><a href=\"/strona2/login\">Zaloguj</a></li>
+    <li><a href=\"{{ 'login'|page }}\">Zaloguj</a></li>
 {% endif %}
 
 <div class=\"sidebar-segment hidden-sm hidden-xs\">
